@@ -85,6 +85,13 @@ input{
     white-space: nowrap;
 }
 
+.cards .card .content p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
 .contents{
     flex: 1;
 }
@@ -98,33 +105,33 @@ input{
     height: 460px;
 }
 
-.contents .content .body{
+.contents .content .filling{
     display: flex;
     flex-direction: column;
     gap: 20px;
     overflow-y: auto;
 }
 
-.contents .content .body::-webkit-scrollbar{
+.contents .content .filling::-webkit-scrollbar{
     width: 4px;
     /*background-color: rgba(173, 182, 191, 0.4);*/
 }
-.contents .content .body::-webkit-scrollbar-thumb {
+.contents .content .filling::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: var(--blue);
 }
 
-.contents .content .body::-webkit-scrollbar-track {
+.contents .content .filling::-webkit-scrollbar-track {
     border-radius: 10px;
     margin-bottom: 16px;
     background-color: rgba(173, 182, 191, 0.4);
 }
 
-/*.contents .content .body > *{*/
+/*.contents .content .filling > *{*/
 /*    margin-bottom: 20px;*/
 /*}*/
 
-/*.contents .content .body > *:last-child{*/
+/*.contents .content .filling > *:last-child{*/
 /*    margin-bottom: 0;*/
 /*}*/
 
@@ -197,13 +204,47 @@ input{
     display: none !important;
 }
 
+@media  screen and (max-width: 640px) {
+    .list{
+        flex-direction: column;
+    }
+}
+
 @media screen and (max-width: 376px) {
     .container{
         max-width: 376px;
         padding: 0 20px;
     }
     .list{
-        flex-direction: column;
+        gap: 30px;
+    }
+    .cards{
+        gap: 10px;
+    }
+    .cards .card{
+        padding: 20px;
+    }
+    .cards .card .title{
+        font-size: 20px;
+    }
+    .cards .card .content{
+        font-size: 12px;
+    }
+
+    .cards .card .content p{
+        -webkit-line-clamp: 4;
+    }
+    .contents .content .filling h2{
+        font-size: 22px;
+    }
+    .contents .content .filling p, ol, ul{
+        font-size: 14px;
+    }
+    .row{
+        width: calc(100% - 20px);
+    }
+    .btn{
+        font-size: 14px;
     }
 }
 
